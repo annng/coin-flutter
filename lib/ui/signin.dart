@@ -88,7 +88,7 @@ class _SignInPageState extends State<SignInPage> {
                               bgColor: Colors.black,
                               textColor: Colors.white,
                               onClick: (){
-                                Get.to(HomePage());
+                                  Get.to(HomePage());
                               },
                             ),
                             Align(

@@ -9,6 +9,10 @@ class TextView {
         fontWeight: FontWeight.bold, letterSpacing: 1.1));
   }
 
+  Widget titleMedium(String text) {
+    return Text(text, style: const TextStyle(color: ResColor.BLACK, fontSize: 18,
+        fontWeight: FontWeight.bold));
+  }
 
   Widget titleBig(String text) {
       return Text(text, style: const TextStyle(color: ResColor.BLACK, fontSize: 32,

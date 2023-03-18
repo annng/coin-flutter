@@ -1,5 +1,8 @@
 import 'package:coin_wallet/common/widget/Container.dart';
 import 'package:coin_wallet/common/widget/TextView.dart';
+import 'package:coin_wallet/dummy/Coin.dart';
+import 'package:coin_wallet/ui/child/view/HorizontalListCoin.dart';
+import 'package:coin_wallet/ui/child/view/MarketTrendList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +19,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: ScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -39,7 +43,7 @@ class _DashboardPageState extends State<DashboardPage> {
             height: 8,
           ),
           Padding(
-            padding:const EdgeInsets.fromLTRB(12.0, 0, 12, 0),
+            padding: const EdgeInsets.fromLTRB(12.0, 0, 12, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -86,38 +90,51 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Row(
               children: [
                 Image.asset("asset/img/img_chart.png",
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width / 2),
+                    width: MediaQuery.of(context).size.width / 2),
                 SizedBox(
                   width: 16,
                 ),
-                Container(
-                  width: 64,
-                  height: 64,
-                  decoration: BoxDecoration(
-                      color: ResColor.PRIMARY_COLOR,
-                      shape: BoxShape.circle),
-                  child: Image.asset(
-                    "asset/icon/ic_deposit.png",
-                    width: 27,
-                    height: 27,
-                  ),
+                Column(
+                  children: [
+                    Container(
+                      width: 64,
+                      height: 64,
+                      decoration: BoxDecoration(
+                          color: ResColor.PRIMARY_COLOR,
+                          shape: BoxShape.circle),
+                      child: Image.asset(
+                        "asset/icon/ic_deposit.png",
+                        width: 27,
+                        height: 27,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    TextView().textDefault(text: "Deposit")
+                  ],
                 ),
                 SizedBox(
                   width: 16,
                 ),
-                Container(
-                  width: 64,
-                  height: 64,
-                  decoration: BoxDecoration(
-                      color: ResColor.BLACK, shape: BoxShape.circle),
-                  child: Image.asset(
-                    "asset/icon/ic_withdraw.png",
-                    width: 27,
-                    height: 27,
-                  ),
+                Column(
+                  children: [
+                    Container(
+                      width: 64,
+                      height: 64,
+                      decoration: BoxDecoration(
+                          color: ResColor.BLACK, shape: BoxShape.circle),
+                      child: Image.asset(
+                        "asset/icon/ic_withdraw.png",
+                        width: 27,
+                        height: 27,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    TextView().textDefault(text: "Withdraw")
+                  ],
                 ),
               ],
             ),
@@ -125,7 +142,7 @@ class _DashboardPageState extends State<DashboardPage> {
           const SizedBox(
             width: 16,
           ),
-          contentDashboard()
+          contentDashboard(),
         ],
       ),
     );
@@ -136,19 +153,54 @@ class _DashboardPageState extends State<DashboardPage> {
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(24), topRight: Radius.circular(24))
-      ),
+              topLeft: Radius.circular(24), topRight: Radius.circular(24))),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16,4, 16, 16),
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-          SizedBox(height: 8,),
-          Align(alignment: Alignment.center, child: Content().slideUpLine()),
-          SizedBox(height: 16,),
-          TextView().titleLabel(text: "Your asset"),
-
-        ],),
+            SizedBox(
+              height: 8,
+            ),
+            Align(alignment: Alignment.center, child: Content().slideUpLine()),
+            SizedBox(
+              height: 16,
+            ),
+            TextView().titleLabel(text: "Your asset"),
+            SizedBox(
+                height: 215,
+                width: MediaQuery.of(context).size.width,
+                child: HorizontalCoinList(coins: DummyCoin().coins)),
+            SizedBox(
+              height: 18,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                          flex: 1,
+                          child: TextView().titleLabel(text: "Market Share")),
+                      Row(
+                        children: [
+                          TextView().textDefault(text: "24h"),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Image.asset("asset/icon/ic_sort.png")
+                        ],
+                      )
+                    ],
+                  ),
+                  MarketTrendView()
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
