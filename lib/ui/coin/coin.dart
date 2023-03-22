@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 
 import '../../common/cons/ResColor.dart';
 import '../../common/widget/TextView.dart';
+import 'component/GraphCoinView.dart';
+import 'component/TransactionButtonCoin.dart';
 
 class CoinView extends StatefulWidget {
   const CoinView({Key? key}) : super(key: key);
@@ -41,7 +43,9 @@ class _CoinViewState extends State<CoinView> {
                         )
                       ],
                     ),
-                    DashboardCoin()
+                    DashboardCoin(),
+                    GraphCoinView(),
+                    TransactionButtonCoin()
                   ],
                 )
               ],

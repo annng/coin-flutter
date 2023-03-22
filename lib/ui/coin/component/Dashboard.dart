@@ -12,7 +12,7 @@ class DashboardCoin extends StatelessWidget {
     return Column(
       children: [
         balanceCoin(),
-        transactionCoin()
+        transactionCoin(),
       ],
     );
   }
