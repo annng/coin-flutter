@@ -1,3 +1,4 @@
+import 'package:coin_wallet/ui/transaction/input/InputTransactionCoin.dart';
 import 'package:coin_wallet/util/atom/ButtonTransaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +17,13 @@ class TransactionButtonCoin extends StatelessWidget {
         SizedBox(width: 16,),
         Expanded(
           child: ButtonTransaction(title: "Buy", resIcon: "asset/icon/ic_deposit.png", onPressed: (){
-            Get.snackbar("buy", "clicked");
+            Get.to(() => InputTransactionCoin());
           }),
         ),
         SizedBox(width: 16,),
         Expanded(
           child: ButtonTransaction(title: "Sell", resIcon: "asset/icon/ic_withdraw.png", bgColor: ResColor.BLACK, onPressed: (){
-            Get.snackbar("sell", "clicked");
+            Get.to(() => InputTransactionCoin());
           }),
         ),
         SizedBox(width: 16,),
