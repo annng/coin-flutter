@@ -1,6 +1,6 @@
 import 'package:coin_wallet/common/cons/ResColor.dart';
 import 'package:coin_wallet/ui/child/dashboard.dart';
-import 'package:coin_wallet/ui/child/view/HorizontalListCoin.dart';
+import 'package:coin_wallet/ui/child/component/HorizontalListCoin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';

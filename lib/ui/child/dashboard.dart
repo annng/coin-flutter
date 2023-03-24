@@ -1,8 +1,8 @@
 import 'package:coin_wallet/common/widget/Container.dart';
 import 'package:coin_wallet/common/widget/TextView.dart';
 import 'package:coin_wallet/dummy/Coin.dart';
-import 'package:coin_wallet/ui/child/view/HorizontalListCoin.dart';
-import 'package:coin_wallet/ui/child/view/MarketTrendList.dart';
+import 'package:coin_wallet/ui/child/component/HorizontalListCoin.dart';
+import 'package:coin_wallet/ui/child/component/MarketTrendList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

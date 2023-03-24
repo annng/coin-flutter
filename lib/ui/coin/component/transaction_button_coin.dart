@@ -13,7 +13,7 @@ class TransactionButtonCoin extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        SizedBox(width: 8,),
+        SizedBox(width: 16,),
         Expanded(
           child: ButtonTransaction(title: "Buy", resIcon: "asset/icon/ic_deposit.png", onPressed: (){
             Get.snackbar("buy", "clicked");
