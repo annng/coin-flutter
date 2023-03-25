@@ -56,9 +56,8 @@ class NumPad extends StatelessWidget {
     var cSpacing = size.height * 0.06;
 
     return Container(
-      height: size.height * 0.45,
+      height: size.height * 0.5,
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-      color: backgroundColor ?? Colors.white,
       child: GridView.count(
         physics: const NeverScrollableScrollPhysics(),
         mainAxisSpacing: mainAxisSpacing ?? mSpacing,
@@ -76,10 +75,8 @@ class NumPad extends StatelessWidget {
           numItem(
             value: 99,
             onTap: onTap,
-            widget: Icon(
-              Icons.backspace_outlined,
-              size: iconSize ?? 30,
-              color: themeColor ?? Colors.blueGrey,
+            widget: Image.asset("asset/icon/ic_delete_numpad.png",
+              width: 30,
             ),
           ),
         ],
@@ -99,14 +96,14 @@ class NumPad extends StatelessWidget {
       child: Container(
         width: buttonSize ?? _buttonSize,
         height: buttonSize ?? _buttonSize,
-        decoration: numItemDecoration ??
-            BoxDecoration(
-                border: Border.all(
-                  color: themeColor ?? Colors.blueGrey,
-                  width: 0.6,
-                  style: BorderStyle.solid,
-                ),
-                borderRadius: const BorderRadius.all(Radius.circular(50))),
+        // decoration: numItemDecoration ??
+        //     BoxDecoration(
+        //         border: Border.all(
+        //           color: themeColor ?? Colors.blueGrey,
+        //           width: 0.6,
+        //           style: BorderStyle.solid,
+        //         ),
+        //         borderRadius: const BorderRadius.all(Radius.circular(50))),
         child: Center(
           child: widget ??
               Text(
@@ -114,7 +111,7 @@ class NumPad extends StatelessWidget {
                 style: textStyle ??
                     TextStyle(
                       fontSize: textSize,
-                      color: themeColor ?? Colors.blueGrey,
+                      color: themeColor ?? Colors.black,
                     ),
               ),
         ),

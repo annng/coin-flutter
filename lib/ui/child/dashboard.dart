@@ -3,6 +3,7 @@ import 'package:coin_wallet/common/widget/TextView.dart';
 import 'package:coin_wallet/dummy/Coin.dart';
 import 'package:coin_wallet/ui/child/component/HorizontalListCoin.dart';
 import 'package:coin_wallet/ui/child/component/MarketTrendList.dart';
+import 'package:coin_wallet/util/atom/CircleIcon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -119,17 +120,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 Column(
                   children: [
-                    Container(
-                      width: 64,
-                      height: 64,
-                      decoration: BoxDecoration(
-                          color: ResColor.BLACK, shape: BoxShape.circle),
-                      child: Image.asset(
-                        "asset/icon/ic_withdraw.png",
-                        width: 27,
-                        height: 27,
-                      ),
-                    ),
+                    CircleIcon(imgAsset: "asset/icon/ic_withdraw.png"),
                     SizedBox(
                       height: 16,
                     ),

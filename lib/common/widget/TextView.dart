@@ -9,13 +9,13 @@ class TextView {
         fontWeight: FontWeight.bold, letterSpacing: 1.1));
   }
 
-  Widget titleMedium(String text) {
-    return Text(text, style: const TextStyle(color: ResColor.BLACK, fontSize: 18,
+  Widget titleMedium(String text, {Color textColor = ResColor.BLACK}) {
+    return Text(text, style: TextStyle(color: textColor, fontSize: 18,
         fontWeight: FontWeight.bold));
   }
 
-  Widget titleBig(String text) {
-      return Text(text, style: const TextStyle(color: ResColor.BLACK, fontSize: 32,
+  Widget titleBig(String text,  {Color textColor = ResColor.BLACK}) {
+      return Text(text, style: TextStyle(color: textColor, fontSize: 32,
       fontWeight: FontWeight.bold));
     }
 
@@ -24,13 +24,26 @@ class TextView {
         fontWeight: FontWeight.normal, letterSpacing: 1.1));
   }
 
-  Widget textMedium({required String text, Color textColor = ResColor.LIGHT_BLACK}) {
+  Widget textMedium({required String text, Color textColor = ResColor.LIGHT_BLACK, FontWeight fontWeight = FontWeight.normal }) {
     return Text(text, style:  TextStyle(color: textColor, fontSize: 14,
-        fontWeight: FontWeight.normal, letterSpacing: 1.1));
+        fontWeight: fontWeight, letterSpacing: 1.1));
   }
 
   Widget titleSmall({required String text, Color textColor = ResColor.LIGHT_BLACK}) {
     return Text(text, style:  TextStyle(color: textColor, fontSize: 14,
         fontWeight: FontWeight.normal));
+  }
+
+  Widget RowInvoice({String title = "", String value = '', bool isBold = false}){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextView().textMedium(text: title, textColor: ResColor.LIGHT_BLACK),
+          TextView().textMedium(text: value, fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
+        ],
+      ),
+    );
   }
 }

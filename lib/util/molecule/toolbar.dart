@@ -4,10 +4,11 @@ import 'package:flutter/cupertino.dart';
 
 class Toolbar extends StatelessWidget {
   Function()? onBackPressed;
+  Function()? onClose;
   String title;
   List<Widget>? actions;
 
-  Toolbar({Key? key, this.onBackPressed, required this.title, this.actions})
+  Toolbar({Key? key, this.onClose, this.onBackPressed, required this.title, this.actions})
       : super(key: key);
 
   @override
@@ -18,7 +19,8 @@ class Toolbar extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ActionImageView(onPressed: onBackPressed, res: "asset/icon/ic_back.png"),
+            if(onBackPressed != null)...[ActionImageView(onPressed: onBackPressed, res: "asset/icon/ic_back.png")],
+            if(onClose != null)...[ActionImageView(onPressed: onClose, res: "asset/icon/ic_close.png")],
             Row(
               children: actions ?? [Container()],
             )
